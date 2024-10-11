@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Kont</title>
+</head>
+<body>
+<h1>Lista Kont</h1>
+<ul>
+    <li th:each="account : ${accounts}">
+        <span th:text="'Nazwa konta: ' + ${account.nazwa}"></span><br/>
+        <span th:text="'Saldo: ' + ${account.biezaceSaldo} + ' PLN'"></span><br/>
+        <a th:href="'/account?id=' + ${account.id}">Szczegóły</a><br/><br/>
+    </li>
+</ul>
+</body>
+</html>

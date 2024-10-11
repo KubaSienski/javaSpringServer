@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Szczegóły Konta</title>
+</head>
+<body>
+<h1>Szczegóły Konta</h1>
+<p>
+  <strong>Nazwa konta:</strong> <span th:text="${account.nazwa}"></span><br/>
+  <strong>Identyfikator konta:</strong> <span th:text="${account.identyfikatorKonta}"></span><br/>
+  <strong>Saldo:</strong> <span th:text="${account.biezaceSaldo} + ' PLN'"></span><br/>
+</p>
+
+<h2>Historia transakcji</h2>
+<ul>
+  <li th:each="transaction : ${transactions}">
+    <span th:text="'Nadawca: ' + ${transaction.nadawca}"></span><br/>
+    <span th:text="'Odbiorca: ' + ${transaction.odbiorca}"></span><br/>
+    <span th:text="'Kwota: ' + ${transaction.kwota} + ' PLN'"></span><br/>
+    <span th:text="'Data zlecenia: ' + ${transaction.dataZlecenia}"></span><br/>
+    <span th:text="'Typ transakcji: ' + ${transaction.typTransakcji}"></span><br/><br/>
+  </li>
+</ul>
+</body>
+</html>
